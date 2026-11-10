@@ -1,0 +1,19 @@
+name: Test delle ricette
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Scarica il codice del repository
+        uses: actions/checkout@v7
+      - name: Installa Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
+      - name: Esegui i test
+        run: python -m unittest -v
